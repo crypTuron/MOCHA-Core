@@ -53,16 +53,14 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 //    timestamp before)
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
-    boost::assign::map_list_of(0, uint256("0x000007cabcfba44b7a728f1746bdec842c9fefab32e8e9df3e18d28ecc265eb3"))
-                              (4000, uint256("0x000000af6445b242825821779256169686e448ff8343e994816727a02cfb013d"))
-                              (8500, uint256("0xaf7e825f0e62988090a6262b4c240a7985f9989806c76d1727ac2d2aabb38177"));
+    boost::assign::map_list_of(0, uint256("0x"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1576361661, // * UNIX timestamp of last checkpoint block
-    11006,      // * total number of transactions between genesis and last checkpoint
+    //1576361661, // * UNIX timestamp of last checkpoint block
+    //11006,      // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
-    2345        // * estimated number of transactions per day after checkpoint
+    4690        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
@@ -114,10 +112,11 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x53; //M
-        pchMessageStart[1] = 0x4f; //A
-        pchMessageStart[2] = 0x56; //L
-        pchMessageStart[3] = 0x45; //W
+        pchMessageStart[0] = 0x4d; //M
+        pchMessageStart[1] = 0x4f; //O
+        pchMessageStart[2] = 0x43; //C
+        pchMessageStart[3] = 0x48; //H
+        pchMessageStart[4] = 0x41; //A
         vAlertPubKey = ParseHex("04538b592eda1a271eebf89a209aaa60c6222613b905201287262b86bec10274dabdb2df865c9fd6c30e1b116c94136b6c4515d4caf7b607cdb45decfdf12dd498");
         nDefaultPort = 21103;
         bnProofOfWorkLimit = ~uint256(0) >> 20;
@@ -126,8 +125,8 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 1*60;  // MochaChain POW not so fast as we can
-        nTargetSpacing =  1*60;
+        nTargetTimespan = 10 * 30;  // MochaChain POW not so fast as we can
+        nTargetSpacing =  1 * 30; // MochaChain 30 seconds block time
         nMaturity = 180;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 315000000 * COIN;
@@ -150,7 +149,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "November 18, 2019: Linux, Windows Users Targeted With New ACBackdoor Mochaare";
+        const char* pszTimestamp = "February 4, 2020: Kim Kardashian Says The Smallest Starbucks Drinks Taste The Best But Do They?";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -161,21 +160,48 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1574164800;
+        genesis.nTime = 1580878092;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1832696;
+        genesis.nNonce = 0;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000a613765e27f78e893da7c16a40476c2d8608a03f075b984a8acb7188002"));
-        assert(genesis.hashMerkleRoot == uint256("0x02582b9dee21157316f6ffdc4afbe35dca6ab2b5fd812685aa3d003354838a20"));
+        assert(hashGenesisBlock == uint256("0x"));
+        assert(genesis.hashMerkleRoot == uint256("0x"));
+
+    if (true && block.GetHash() != hashGenesisBlock)
+        {
+            printf("Searching for genesis block...\n");
+            // This will figure out a valid hash and Nonce if you're
+            // creating a different genesis block:
+            uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
+            uint256 thash;
+            char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
+
+            loop
+            {
+                scrypt_1024_1_1_256_sp(BEGIN(block.nVersion), BEGIN(thash), scratchpad);
+                if (thash <= hashTarget)
+                    break;
+                if ((block.nNonce & 0xFFF) == 0)
+                {
+                    printf("nonce %08X: hash = %s (target = %s)\n", block.nNonce, thash.ToString().c_str(), hashTarget.ToString().c_str());
+                }
+                ++block.nNonce;
+                if (block.nNonce == 0)
+                {
+                    printf("NONCE WRAPPED, incrementing time\n");
+                    ++block.nTime;
+                }
+            }
+            printf("block.nTime = %u \n", block.nTime);
+            printf("block.nNonce = %u \n", block.nNonce);
+            printf("block.GetHash = %s\n", block.GetHash().ToString().c_str());
+
+            }
+
 
         vSeeds.push_back(CDNSSeedData("dns", "nodes.mocha.network"));
-        vSeeds.push_back(CDNSSeedData("node1", "8.9.37.226"));
-        vSeeds.push_back(CDNSSeedData("node2", "199.247.31.188"));
-        vSeeds.push_back(CDNSSeedData("node3", "149.248.19.208"));
-        vSeeds.push_back(CDNSSeedData("node4", "209.250.224.156"));
-        vSeeds.push_back(CDNSSeedData("node5", "104.238.153.12"));
-        vSeeds.push_back(CDNSSeedData("node6", "45.32.164.38"));
+        vSeeds.push_back(CDNSSeedData("node1", "8.9.11.39"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 51);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
