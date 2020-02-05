@@ -4,7 +4,7 @@
 
 MochaChain Core version 1.2.1 is now available from:
 
-  https://mochachain.net/
+  https://mocha.network/
 
 Please report bugs using the issue tracker at github:
 

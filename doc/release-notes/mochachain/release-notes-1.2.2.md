@@ -5,7 +5,7 @@
 
 MochaChain Core version 1.2.2 is now available from:
 
-  https://mochachain.net/
+  https://mocha.network/
 
 Please report bugs using the issue tracker at github:
 
@@ -24,7 +24,7 @@ mochachaind/mochachain-qt (on Linux).
 1.2.2 changelog
 ----------------
 
-- Updated chain parameters in response to [this governance proposal](https://forum.mochachain.net/t/block-reward-extension/81).
+- Updated chain parameters in response to [this governance proposal](https://forum.mocha.network/t/block-reward-extension/81).
   - Updated development rewards to a constant 1 MOCHA per block.
   - Updated block reward schedule
 - Fixed bug with mempoolnotify important for marketplace launch

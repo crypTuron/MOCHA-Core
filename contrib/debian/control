@@ -1,8 +1,8 @@
 Source: mochachain
 Section: utils
 Priority: optional
-Maintainer: Luka Schnider <lukas@mochachain.net>
-Uploaders: Luka Schnider <lukas@mochachain.net>
+Maintainer: Luka Schnider <lukas@mocha.network>
+Uploaders: Luka Schnider <lukas@mocha.network>
 Build-Depends: debhelper,
  devscripts,
  automake,
@@ -22,7 +22,7 @@ Build-Depends: debhelper,
  libqrencode-dev,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
-Homepage: http://www.mochachain.net
+Homepage: http://www.mocha.network
 Vcs-Git: git://github.com/MochaChain/MochaChain.git
 Vcs-Browser: http://github.com/MochaChain/MochaChain
 

@@ -169,7 +169,7 @@ public:
         assert(hashGenesisBlock == uint256("0x00000a613765e27f78e893da7c16a40476c2d8608a03f075b984a8acb7188002"));
         assert(genesis.hashMerkleRoot == uint256("0x02582b9dee21157316f6ffdc4afbe35dca6ab2b5fd812685aa3d003354838a20"));
 
-        vSeeds.push_back(CDNSSeedData("dns", "nodes.mochachain.net"));
+        vSeeds.push_back(CDNSSeedData("dns", "nodes.mocha.network"));
         vSeeds.push_back(CDNSSeedData("node1", "8.9.37.226"));
         vSeeds.push_back(CDNSSeedData("node2", "199.247.31.188"));
         vSeeds.push_back(CDNSSeedData("node3", "149.248.19.208"));

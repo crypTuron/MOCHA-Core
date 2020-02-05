@@ -3,7 +3,7 @@ MochaChain Core
 
 Setup
 ---------------------
-[MochaChain Core](http://mochachain.net) is the original MochaChain client and it builds the backbone of the network. However, it downloads and stores the entire history of MochaChain transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[MochaChain Core](http://mocha.network) is the original MochaChain client and it builds the backbone of the network. However, it downloads and stores the entire history of MochaChain transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
@@ -28,8 +28,8 @@ Drag MochaChain-Qt to your applications folder, and then run MochaChain-Qt.
 
 * See the documentation at the [MochaChain Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
 for help and more information.
-* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=00000) or on the [MochaChain Forum](http://forum.mochachain.net/).
-* Join one of our Slack groups [MochaChain Slack Groups](https://mochachain.net/slack-logins/).
+* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=00000) or on the [MochaChain Forum](http://forum.mocha.network/).
+* Join one of our Slack groups [MochaChain Slack Groups](https://mocha.network/slack-logins/).
 * Join our Discord server [Discord Server](https://discord.gg/A9Sfa7A)
 
 Building
@@ -56,7 +56,7 @@ The MochaChain repo's [root README](https://github.com/MochaChainOSS/MochaChain/
 
 ### Resources
 
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=0) or the [MochaChain](http://forum.mochachain.net/) forum.
+* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=0) or the [MochaChain](http://forum.mocha.network/) forum.
 * Join the [MochaChain-Dev](https://mochachain-dev.slack.com/) Slack group ([Sign-Up](https://mochachain-dev.herokuapp.com/)).
 
 ### Miscellaneous

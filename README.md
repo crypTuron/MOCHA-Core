@@ -7,15 +7,15 @@ Project about
 
 Whitepaper
 -----------
-https://mochachain.net/Whitepaper_V.1.0.pdf
+https://mocha.network/Whitepaper_V.1.0.pdf
 
 Web Official
 ------------
-https://mochachain.net/
+https://mocha.network/
 
 Block Explorer
 --------------
-https://blocks.mochachain.net
+https://blocks.mocha.network
 
 GitHub
 ------
@@ -27,7 +27,7 @@ https://bitcointalk.org/index.php?topic=000000
 
 Masternodes setup guide
 -----------------------
-https://mochachain.net/masternode-setup-guide/
+https://mocha.network/masternode-setup-guide/
 
 Coin/project stats
 ------------------
@@ -47,4 +47,4 @@ https://twitter.com/MochaChainNetwork
 
 Offers email
 ------------
-info@mochachain.net
+info@mocha.network
