@@ -116,7 +116,6 @@ public:
         pchMessageStart[1] = 0x4f; //O
         pchMessageStart[2] = 0x43; //C
         pchMessageStart[3] = 0x48; //H
-        pchMessageStart[4] = 0x41; //A
         vAlertPubKey = ParseHex("04538b592eda1a271eebf89a209aaa60c6222613b905201287262b86bec10274dabdb2df865c9fd6c30e1b116c94136b6c4515d4caf7b607cdb45decfdf12dd498");
         nDefaultPort = 21103;
         bnProofOfWorkLimit = ~uint256(0) >> 20;
@@ -162,11 +161,41 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = 1580878092;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 0;
+        genesis.nNonce = 203341;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x"));
-        assert(genesis.hashMerkleRoot == uint256("0x"));
+
+/**
+
+  generate genesis
+        if(genesis.GetHash() != uint256("0x"))
+        {
+        printf("MSearching for genesis block...\n");
+        uint256 hashTarget;
+        hashTarget.SetCompact(genesis.nBits);
+        while(uint256(genesis.GetHash()) > uint256(hashTarget))
+        {
+            ++genesis.nNonce;
+            if (genesis.nNonce == 0)
+            {
+                printf("Mainnet NONCE WRAPPED, incrementing time");
+                std::cout << std::string("Mainnet NONCE WRAPPED, incrementing time:\n");
+                ++genesis.nTime;
+            }
+            if (genesis.nNonce % 10000 == 0)
+            {
+               printf("Mainnet: nonce %08u: hash = %s \n", genesis.nNonce, genesis.GetHash().ToString().c_str());
+            }
+        }
+        printf("Mainnet block.nTime = %u \n", genesis.nTime);
+        printf("Mainnet block.nNonce = %u \n", genesis.nNonce);
+        printf("Mainnet block.hashMerkleRoot: %s\n", genesis.hashMerkleRoot.ToString().c_str());
+        printf("Mainnet block.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+        }
+ * Main network
+ */
+        assert(hashGenesisBlock == uint256("0x00000edf476110069a5c87f39ac70461327a7736294aed90738634e62f9e0c64"));
+        assert(genesis.hashMerkleRoot == uint256("0xfbc54b37ac266495af99967fea1a1684aa21d4bc4f90884bf6310834590348c9"));
 
         vSeeds.push_back(CDNSSeedData("dns", "nodes.mocha.network"));
         vSeeds.push_back(CDNSSeedData("node1", "8.9.11.39"));
