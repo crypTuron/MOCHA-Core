@@ -1,0 +1,26 @@
+# /etc/conf.d/mochachaind: config file for /etc/init.d/mochachaind
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/mochachain/mochachain.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/mochachaind"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/mochachaind.pid"
+
+# Where to write mochachaind data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/mochachaind"
+
+# User and group to own mochachaind process
+#BITCOIND_USER="mochachain"
+#BITCOIND_GROUP="mochachain"
+
+# Path to mochachaind executable
+#BITCOIND_BIN="/usr/bin/mochachaind"
+
+# Nice value to run mochachaind under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
