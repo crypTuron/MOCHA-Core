@@ -12,27 +12,32 @@
 /*                                                                                      */
 /* background:         #d1dbea                                                          */
 /* input fields:       #d1dbea                                                          */
+
+/* MOCHACHAIN EDITS                                                                     */
+/* Coffee Color: #6f4e37                                                                */
+/* Dark Orange: #E46E16                                                                  */
+/* White / Background: #f1f7ed */
 /****************************************************************************************/
 
 
 WalletFrame {
-background-color:#f1f7ed;
-border-top:0px solid #000;
-margin:0;
-padding:0;
+	background-color: #E46E16;
+	border-top:0px solid #000;
+	margin:0;
+	padding:0;
 }
 
 QStatusBar {
-background-color:#f1f7ed;
+	background-color: #E46E16;
 }
 
 .QFrame {
-background-color:transparent;
-border:0px solid #f1f7ed;
+	background-color:transparent;
+	border:0px solid #f1f7ed;
 }
 
 QMenuBar {
-background-color:#f1f7ed;
+	background-color:#f1f7ed;
 }
 
 QMenuBar::item {
