@@ -126,7 +126,7 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 10 * 30;  // MochaChain POW not so fast as we can
         nTargetSpacing =  1 * 30; // MochaChain 30 seconds block time
-        nMaturity = 180;
+        nMaturity = 5;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 315000000 * COIN;
 
