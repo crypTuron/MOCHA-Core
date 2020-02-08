@@ -24,13 +24,13 @@ COLLAMOUNT="5000"																	#collateral amount
 EASYNODELINK=""             			   										   	#link to easyNode Manager script
 
 function print_welcome() {
-	echo ""
+	echo "                                                                                "
 	echo "╔══════════════════════════════════════════════════════════════════════════════╗"
 	echo "║                                                                              ║"
 	echo "║                Welcome to MOCHA MasterNode autosetup script                  ║"
 	echo "║                                                                              ║"
 	echo "╚══════════════════════════════════════════════════════════════════════════════╝"
-	echo ""
+	echo "                                                                                "
 }
 
 function run_pre_checks() {
