@@ -27,11 +27,10 @@ function print_welcome() {
 	echo ""
 	echo "╔══════════════════════════════════════════════════════════════════════════════╗"
 	echo "║                                                                              ║"
-	echo "║                Welcome to MOCHA masternode autosetup script                  ║"
+	echo "║                Welcome to MOCHA MasterNode autosetup script                  ║"
 	echo "║                                                                              ║"
 	echo "╚══════════════════════════════════════════════════════════════════════════════╝"
-	echo
-
+	echo ""
 }
 
 function run_pre_checks() {
