@@ -22,7 +22,7 @@
 
 
 WalletFrame {
-	background-color: #E46E16;
+	background-color: #6f4e37;
 	border-top: 0px solid #000;
 	margin: 0;
 	padding: 0;
@@ -73,7 +73,7 @@ QToolBar {
 
 QToolBar>QToolButton {
 	Alignment: left;
-	background-color: #E46E16;
+	background-color: #6f4e37;
 	selection-background-color: transparent;
 	border: 0.5px solid #888;
 	border-left: 0px;
@@ -245,7 +245,7 @@ QPushButton {
 	/*border-width: 1px;*/
 	border-style: outset;
 	/*border-color: #6f4e37;*/
-	/*border-radius: 2px;*/
+	border-radius: 2px;
 	color: #f1f7ed;
 	font-size: 13px;
 	font-weight: bold;
