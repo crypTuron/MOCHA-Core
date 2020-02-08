@@ -199,6 +199,7 @@ public:
 
         vSeeds.push_back(CDNSSeedData("dns", "nodes.mocha.network"));
         vSeeds.push_back(CDNSSeedData("node1", "8.9.11.39"));
+        vSeeds.push_back(CDNSSeedData("node2", "45.76.20.15")); // Chicago Node
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 51);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
