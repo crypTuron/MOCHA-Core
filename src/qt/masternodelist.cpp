@@ -391,7 +391,7 @@ while (ui->tableWidgetMyMasternodes->rowCount() > 0)
     // parse masternode.conf
     std::string strErr;
     if (!masternodeConfig.read(strErr)) {
-        LogPrintf("Error reading masternode configuration file: \n");
+        LogPrintf("Error reading masternode configuration file: Does it Exist?\n");
     }	
       updateMyNodeList(true);
     }
