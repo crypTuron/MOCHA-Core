@@ -7,7 +7,7 @@ Project about
 
 Whitepaper
 -----------
-https://mocha.network/Whitepaper_V.1.0.pdf
+https://mocha.network/whitepaper.pdf
 
 Web Official
 ------------
@@ -15,7 +15,7 @@ https://mocha.network/
 
 Block Explorer
 --------------
-https://blocks.mocha.network
+http://blocks.mocha.network
 
 GitHub
 ------
