@@ -73,7 +73,7 @@ QToolBar {
 
 QToolBar>QToolButton {
 	Alignment: left;
-	background-color: #6f4e37;
+	background-color: #05082D;
 	selection-background-color: transparent;
 	border: 0.5px solid #888;
 	border-left: 0px;
@@ -103,13 +103,13 @@ QToolBar>QToolButton:hover {
 }
 
 QToolBar>QToolButton#ToolbarSpacer:hover:!selected {
-	background-color: #6f4e37;
+	background-color: #05082D;
 	/* Do not highlight placeholder on hover */
 }
 
 QToolBar>QToolButton:pressed {
 	background-color: #d1dbea;
-	color: #6f4e37;
+	color: #05082D;
 }
 
 QMessageBox {
