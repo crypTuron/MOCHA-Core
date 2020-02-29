@@ -99,7 +99,7 @@ QToolBar>QToolButton:checked {
 QToolBar>QToolButton:hover {
 	background-color: transparent;
 	color: #ec9d10;
-	border: 1px solid #6f4e37;
+/* 	border: 1px solid #6f4e37; */
 }
 
 QToolBar>QToolButton#ToolbarSpacer:hover:!selected {
