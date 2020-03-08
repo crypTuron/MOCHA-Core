@@ -64,7 +64,7 @@ QMenu::item:selected {
 }
 
 QToolBar {
-	background-color: qlineargradient(y1:0, y2: 1, stop: 0 #05082D, stop: 0.75 #05082D, stop: 0.99 #f1f7ed, stop: 1 #f1f7ed);
+	background-color: #05082D;
 	border: 0px solid #333;
 	padding: 1;
 	margin: 0;
