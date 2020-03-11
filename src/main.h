@@ -278,78 +278,6 @@ struct CNodeStateStats {
     std::vector<int> vHeightInFlight;
 };
 
-struct CDiskTxPos : public CDiskBlockPos {
-    unsigned int nTxOffset; // after header
-
-    ADD_SERIALIZE_METHODS;
-
-    template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
-    {
-        READWRITE(*(CDiskBlockPos*)this);
-        READWRITE(VARINT(nTxOffset));
-    }
-
-    CDiskTxPos(const CDiskBlockPos& blockIn, unsigned int nTxOffsetIn) : CDiskBlockPos(blockIn.nFile, blockIn.nPos), nTxOffset(nTxOffsetIn)
-    {
-    }
-
-    CDiskTxPos()
-    {
-        SetNull();
-    }
-
-    void SetNull()
-    {
-        CDiskBlockPos::SetNull();
-        nTxOffset = 0;
-    }
-
-    friend bool operator<(const CDiskTxPos &a, const CDiskTxPos &b) {
-        return (a.nFile < b.nFile || (
-                (a.nFile == b.nFile) && (a.nPos < b.nPos || (
-                (a.nPos == b.nPos) && (a.nTxOffset < b.nTxOffset)))));
-    }
-};
-
-struct CExtDiskTxPos : public CDiskTxPos
-{
-    unsigned int nHeight;
-
-    ADD_SERIALIZE_METHODS;
-
-    template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
-            READWRITE(*(CDiskTxPos*)this);
-            READWRITE(VARINT(nHeight));
-    }
-
-    CExtDiskTxPos(const CDiskTxPos &pos, int nHeightIn) : CDiskTxPos(pos), nHeight(nHeightIn) {
-    }
-
-    CExtDiskTxPos() {
-        SetNull();
-    }
-
-    void SetNull() {
-        CDiskTxPos::SetNull();
-        nHeight = 0;
-    }
-
-    friend bool operator==(const CExtDiskTxPos &a, const CExtDiskTxPos &b) {
-        return (a.nHeight == b.nHeight && a.nFile == b.nFile && a.nPos == b.nPos && a.nTxOffset == b.nTxOffset);
-    }
-
-    friend bool operator!=(const CExtDiskTxPos &a, const CExtDiskTxPos &b) {
-        return !(a == b);
-    }
-
-    friend bool operator<(const CExtDiskTxPos &a, const CExtDiskTxPos &b) {
-        if (a.nHeight < b.nHeight) return true;
-        if (a.nHeight > b.nHeight) return false;
-        return ((const CDiskTxPos)a < (const CDiskTxPos)b);
-    }
-};
 
 CAmount GetMinRelayFee(const CTransaction& tx, unsigned int nBytes, bool fAllowFree);
 bool MoneyRange(CAmount nValueOut);
@@ -410,17 +338,12 @@ void UpdateCoins(const CTransaction& tx, CValidationState& state, CCoinsViewCach
 
 /** Context-independent validity checks */
 bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fRejectBadUTXO, CValidationState& state, bool fWitnessActive);
-bool CheckZerocoinMint(const uint256& txHash, const CTxOut& txout, CValidationState& state, bool fCheckOnly = false);
 bool CheckZerocoinSpend(const CTransaction& tx, bool fVerifySignature, CValidationState& state);
 bool ContextualCheckZerocoinSpend(const CTransaction& tx, const libzerocoin::CoinSpend& spend, CBlockIndex* pindex);
 libzerocoin::CoinSpend TxInToZerocoinSpend(const CTxIn& txin);
 bool TxOutToPublicCoin(const CTxOut txout, libzerocoin::PublicCoin& pubCoin, CValidationState& state);
 bool BlockToPubcoinList(const CBlock& block, list<libzerocoin::PublicCoin>& listPubcoins);
-bool BlockToZerocoinMintList(const CBlock& block, std::list<CZerocoinMint>& vMints);
-bool BlockToMintValueVector(const CBlock& block, const libzerocoin::CoinDenomination denom, std::vector<CBigNum>& vValues);
 std::list<libzerocoin::CoinDenomination> ZerocoinSpendListFromBlock(const CBlock& block);
-void FindMints(vector<CMintMeta> vMintsToFind, vector<CMintMeta>& vMintsToUpdate, vector<CMintMeta>& vMissingMints);
-bool GetZerocoinMint(const CBigNum& bnPubcoin, uint256& txHash);
 bool IsSerialKnown(const CBigNum& bnSerial);
 bool IsSerialInBlockchain(const CBigNum& bnSerial, int& nHeightTx);
 bool IsSerialInBlockchain(const uint256& hashSerial, int& nHeightTx, uint256& txidSpend);
@@ -432,8 +355,6 @@ libzerocoin::ZerocoinParams* GetZerocoinParams(int nHeight);
 bool IsTransactionInChain(const uint256& txId, int& nHeightTx, CTransaction& tx);
 bool IsTransactionInChain(const uint256& txId, int& nHeightTx);
 bool IsBlockHashInChain(const uint256& hashBlock);
-void RecalculateZMOCHASpent();
-void RecalculateZMOCHAMinted();
 bool RecalculateMOCHASupply(int nHeightStart);
 bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError);
 
